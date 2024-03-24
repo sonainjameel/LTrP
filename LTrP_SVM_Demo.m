@@ -1,0 +1,9 @@
+load('Train_LTrP_Features')
+load('Test_LTrP_Features')
+load('Train_LTrP_Label')
+load('Test_LTrP_Label')
+SVMModel=fitcsvm(Train_LTrP_Features,Train_LTrP_Label);
+[label,score]=predict(SVMModel,Test_LTrP_Features);
+label=label';
+Test_LTrP_Label=Test_LTrP_Label';
+plotconfusion(label,Test_LTrP_Label)
